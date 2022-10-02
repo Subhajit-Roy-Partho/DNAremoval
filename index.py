@@ -27,10 +27,10 @@ p-=length
 # print(p)
 
 
-N= 150
+N= 16
 target_coords, masses = get_json_info('octahedron.json')
 target_coords = np.asarray(target_coords)
 cg = test.Coarse_Grainer(target_coords, N, kstart=True, distance_cutoff=200, votes=0, ignore=handles, fix_handles=p, max_radius_decimal=0.6)
 adjusted_coords = cg.target_coords
 new_positions = cg.coarse_grainer(adjusted_coords, steps=1, timestep=0.002, hmc_steps=2)
-cg.network_export(f'ico_3p_{N}_nh_150') # generates two files! the network description with particles and masses, and an index file which describes which particles in the original system are represented by each particle in the coarse grained system
+cg.network_export(f'ico_3p_{N}_nh_{N}') # generates two files! the network description with particles and masses, and an index file which describes which particles in the original system are represented by each particle in the coarse grained system
