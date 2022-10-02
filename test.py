@@ -192,12 +192,12 @@ class Coarse_Grainer:
         else:
             old_target_coords = target_coords.copy()
 
-            ignored_particles = ignore
-            ignored_particles.sort(reverse=True)  # indices listed in descending order
+            ignored_particles = np.sort(ignore)[::-1]
+            # ignored_particles=  # indices listed in descending order
 
             self.target_coords = target_coords
             for ip in ignored_particles:
-                np.delete(self.target_coords, ip)
+                np.delete(self.target_coords, int(ip))
 
             self.N = self.target_coords.shape[0]
 
