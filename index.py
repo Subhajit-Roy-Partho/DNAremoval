@@ -27,7 +27,7 @@ p-=length
 # print(p)
 
 
-N= 16
+N= 150
 target_coords, masses = get_json_info('octahedron.json')
 target_coords = np.asarray(target_coords)
 cg = test.Coarse_Grainer(target_coords, N, kstart=True, distance_cutoff=200, votes=0, ignore=handles, fix_handles=p, max_radius_decimal=0.6)
